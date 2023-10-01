@@ -169,25 +169,25 @@ We need to set up the Azure resource group, region, storage account, and an app 
         ```bash
         Functions in <APP_NAME>:
             createAdvertisement - [httpTrigger]
-                Invoke url: https://<APP_NAME>.azurewebsites.net/api/createadvertisement
+                Invoke url: https://mennt1-neighborly-function.azurewebsites.net/api/createadvertisement
 
             deleteAdvertisement - [httpTrigger]
-                Invoke url: https://<APP_NAME>.azurewebsites.net/api/deleteadvertisement
+                Invoke url: https://mennt1-neighborly-function.azurewebsites.net/api/deleteadvertisement
 
             getAdvertisement - [httpTrigger]
-                Invoke url: https://<APP_NAME>.azurewebsites.net/api/getadvertisement
+                Invoke url: https://mennt1-neighborly-function.azurewebsites.net/api/getadvertisement
 
             getAdvertisements - [httpTrigger]
-                Invoke url: https://<APP_NAME>.azurewebsites.net/api/getadvertisements
+                Invoke url: https://mennt1-neighborly-function.azurewebsites.net/api/getadvertisements
 
             getPost - [httpTrigger]
-                Invoke url: https://<APP_NAME>.azurewebsites.net/api/getpost
+                Invoke url: https://mennt1-neighborly-function.azurewebsites.net/api/getpost
 
             getPosts - [httpTrigger]
-                Invoke url: https://<APP_NAME>.azurewebsites.net/api/getposts
+                Invoke url: https://mennt1-neighborly-function.azurewebsites.net/api/getposts
 
             updateAdvertisement - [httpTrigger]
-                Invoke url: https://<APP_NAME>.azurewebsites.net/api/updateadvertisement
+                Invoke url: https://mennt1-neighborly-function.azurewebsites.net/api/updateadvertisement
 
         ```
 
@@ -208,7 +208,7 @@ Use a text editor to update the API_URL to your published url from the last step
 
 # ------- For production -------
 # where APP_NAME is your Azure Function App name 
-API_URL="https://<APP_NAME>.azurewebsites.net/api"
+API_URL="https://mennt1-neighborly-function.azurewebsites.net/api"
 ```
 
 ### III. CI/CD Deployment
