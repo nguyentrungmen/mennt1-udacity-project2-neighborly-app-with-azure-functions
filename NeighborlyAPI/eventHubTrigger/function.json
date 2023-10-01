@@ -1,0 +1,14 @@
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "type": "eventGridTrigger",
+      "name": "event",
+      "direction": "in",
+      "eventHubName": "mennt1-neighborly-hub", 
+      "connection": "Endpoint=sb://mennt1-neighborly-eventhub.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=D7mK9w+/16YdMaKInw+QT0bk5cDYoVxN5+AEhK5OlCI=;EntityPath=mennt1-neighborly-hub"
+      
+    }
+  ]
+}
+

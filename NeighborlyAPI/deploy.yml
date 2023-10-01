@@ -1,0 +1,201 @@
+data:
+  FUNCTIONS_WORKER_RUNTIME: cHl0aG9u
+  FUNCTIONS_EXTENSION_VERSION: fjQ=
+  AzureWebJobsStorage: RGVmYXVsdEVuZHBvaW50c1Byb3RvY29sPWh0dHBzO0VuZHBvaW50U3VmZml4PWNvcmUud2luZG93cy5uZXQ7QWNjb3VudE5hbWU9bWVubnQxdWRhY2l0eTtBY2NvdW50S2V5PS9TcGtHVnd0QlI3UW9MM0VQdWZxeDQyRHdTSittQzBPSkRZNkFtdDVsQVdlMU5Sb044WDlmdGZHMGZJeWEyNU94elY0S0ZrUVVwL2ErQVN0cWpnekZBPT0=
+  WEBSITE_CONTENTAZUREFILECONNECTIONSTRING: RGVmYXVsdEVuZHBvaW50c1Byb3RvY29sPWh0dHBzO0VuZHBvaW50U3VmZml4PWNvcmUud2luZG93cy5uZXQ7QWNjb3VudE5hbWU9bWVubnQxdWRhY2l0eTtBY2NvdW50S2V5PS9TcGtHVnd0QlI3UW9MM0VQdWZxeDQyRHdTSittQzBPSkRZNkFtdDVsQVdlMU5Sb044WDlmdGZHMGZJeWEyNU94elY0S0ZrUVVwL2ErQVN0cWpnekZBPT0=
+  WEBSITE_CONTENTSHARE: bWVubnQxLW5laWdoYm9ybHktZnVuY3Rpb241MDc3NzIzM2NmOTI=
+  APPINSIGHTS_INSTRUMENTATIONKEY: YzNjMjkyZDktMDRkNy00OTJjLWI4MGItNzM0YTRiMzdjMDQy
+  MyDbConnection: bW9uZ29kYjovL21lbm50MS1uZWlnaGJvcmx5LWNvc21vc2RiOkJScG9TRGFhUk16NmV3QllJdGZEZTdRbXRsdjM5N1ZVV0hvOUE4YTJlVG45WTVoSE5McXRXTlM3aGZCYUZROWZWZzBvR3J6ZjhxT25BQ0RiNlRMNTJnPT1AbWVubnQxLW5laWdoYm9ybHktY29zbW9zZGIubW9uZ28uY29zbW9zLmF6dXJlLmNvbToxMDI1NS8/c3NsPXRydWUmcmV0cnl3cml0ZXM9ZmFsc2UmcmVwbGljYVNldD1nbG9iYWxkYiZtYXhJZGxlVGltZU1TPTEyMDAwMCZhcHBOYW1lPUBtZW5udDEtbmVpZ2hib3JseS1jb3Ntb3NkYkA=
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mennt1neighborly
+---
+data:
+  host.master: MnVnNFZLbEhuR2VZVFM5Um5xMlliSl9RX0hvdFl6SUR1T0RxUWV2UTVpNENBekZ1T01RZEFBPT0=
+  host.function.default: bUdVNW9VVmhBSmk2Q1VxbFltbTdUd0QzZm9VTTctblV6R012OVlyMEFHZTdBekZ1OWNpZlN3PT0=
+  host.systemKey.default: X3pFbDZWX0ZQODl2ODJvbTdOU1VCREpVLVU0V1d6VWVfQXBKWWdId0l4TGRBekZ1LThNLXdnPT0=
+  functions.createadvertisement.default: ay02V0k5Z2s3bnc5bVhTTHVRdjd4QkZudUhrQ1l1bVF0RlFGYWNnbGV3cFRBekZ1bXZUc3RnPT0=
+  functions.deleteadvertisement.default: V05zdHJwTkdxeUNFTmFBd3hmQjhSRmRFMzdzTVRPVFVmVTZGYXlESGtmZnNBekZ1NTlFRDV3PT0=
+  functions.getadvertisement.default: ZmoxRVZPckR5LVFIOUg4OTkzT3l6UGtDTVRfU3FSTlhNUm9ud29PR0tmWmFBekZ1VUlQVE1RPT0=
+  functions.getadvertisements.default: UFRWZ1lJN0ZPajVITGppUEdxSDJZdkNGMDlnRzVTd29ZbjN2Tk8wdVpWZm9BekZ1dkQ3S1JBPT0=
+  functions.getpost.default: bTh1SEJCRGRwNkRsa2trZFgtN1RpNDl0VWpGdDdycXRsbFM4cWp3RVJIOUpBekZ1c0VGRG53PT0=
+  functions.getposts.default: QjV2SVRMSjlwVU9YMnhKVnZyenNsYngwZThYX2dndDVqY0FFbUVSSVc1U1pBekZ1ekxEZUlnPT0=
+  functions.updateadvertisement.default: dVdoaWxrTzNfVF8tRklJLXhrbFd4MUpmQi1jVzhaQjBONjdNM0ZtZzVKTlpBekZ1WlFsNnBBPT0=
+apiVersion: v1
+kind: Secret
+metadata:
+  name: func-keys-kube-secret-mennt1neighborly
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: mennt1neighborly-function-keys-identity-svc-act
+---
+rules:
+- apiGroups:
+  - ''
+  resources:
+  - secrets
+  - configMaps
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: functions-keys-manager-role
+---
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: functions-keys-manager-role
+subjects:
+- kind: ServiceAccount
+  name: mennt1neighborly-function-keys-identity-svc-act
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: mennt1neighborly-function-keys-identity-svc-act-functions-keys-manager-rolebinding
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mennt1neighborly-http
+spec:
+  selector:
+    app: mennt1neighborly-http
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mennt1neighborly-http
+  labels:
+    app: mennt1neighborly-http
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mennt1neighborly-http
+  template:
+    metadata:
+      labels:
+        app: mennt1neighborly-http
+    spec:
+      containers:
+      - name: mennt1neighborly-http
+        image: mennt1neighborly.azurecr.io/mennt1-neighborly-function:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: AzureFunctionsJobHost__functions__0
+          value: createAdvertisement
+        - name: AzureFunctionsJobHost__functions__1
+          value: deleteAdvertisement
+        - name: AzureFunctionsJobHost__functions__2
+          value: getAdvertisement
+        - name: AzureFunctionsJobHost__functions__3
+          value: getAdvertisements
+        - name: AzureFunctionsJobHost__functions__4
+          value: getPost
+        - name: AzureFunctionsJobHost__functions__5
+          value: getPosts
+        - name: AzureFunctionsJobHost__functions__6
+          value: updateAdvertisement
+        - name: AzureWebJobsSecretStorageType
+          value: kubernetes
+        - name: AzureWebJobsKubernetesSecretName
+          value: secrets/func-keys-kube-secret-mennt1neighborly
+        envFrom:
+        - secretRef:
+            name: mennt1neighborly
+        readinessProbe:
+          failureThreshold: 3
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 240
+          httpGet:
+            path: /
+            port: 80
+            scheme: HTTP
+        startupProbe:
+          failureThreshold: 3
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 240
+          httpGet:
+            path: /
+            port: 80
+            scheme: HTTP
+      serviceAccountName: mennt1neighborly-function-keys-identity-svc-act
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mennt1neighborly
+  labels:
+    app: mennt1neighborly
+spec:
+  selector:
+    matchLabels:
+      app: mennt1neighborly
+  template:
+    metadata:
+      labels:
+        app: mennt1neighborly
+    spec:
+      containers:
+      - name: mennt1neighborly
+        image: mennt1neighborly.azurecr.io/mennt1-neighborly-function:latest
+        env:
+        - name: AzureFunctionsJobHost__functions__0
+          value: eventHubTrigger
+        envFrom:
+        - secretRef:
+            name: mennt1neighborly
+        readinessProbe:
+          failureThreshold: 3
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 240
+          httpGet:
+            path: /
+            port: 80
+            scheme: HTTP
+        startupProbe:
+          failureThreshold: 3
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 240
+          httpGet:
+            path: /
+            port: 80
+            scheme: HTTP
+      serviceAccountName: mennt1neighborly-function-keys-identity-svc-act
+---
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: mennt1neighborly
+  labels: {}
+spec:
+  scaleTargetRef:
+    name: mennt1neighborly
+  triggers:
+  - type: eventgridtrigger
+    metadata:
+      direction: in
+      eventHubName: mennt1-neighborly-hub
+      connection: Endpoint=sb://mennt1-neighborly-eventhub.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=D7mK9w+/16YdMaKInw+QT0bk5cDYoVxN5+AEhK5OlCI=;EntityPath=mennt1-neighborly-hub
+---
+
